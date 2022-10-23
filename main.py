@@ -16,7 +16,7 @@ def result():
 
 @app.route('/guess', methods=['GET', 'POST'])
 def guess():
-  co = cohere.Client('4FqDzcvsQz5KGd4E8plG1boeLod3qsEN1Nsk5n6h')
+  co = cohere.Client('')
   ques_searched = co.generate(
   model='large',
   prompt='final',
@@ -33,7 +33,7 @@ def guess():
 
 @app.route('/quiz')
 def quiz():
-  co = cohere.Client('4FqDzcvsQz5KGd4E8plG1boeLod3qsEN1Nsk5n6h')
+  co = cohere.Client('')
   quiz_ques = co.generate(
   model='large',
   prompt='final',
