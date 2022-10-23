@@ -1,0 +1,18 @@
+<!-- extend base template -->
+{% extends "base.html" %}
+
+<!-- override base title block -->
+{% block title %}Guess The Animal{% endblock %}
+
+{% block content %}
+<!-- notes -->
+<h1 align="center" style="margin-top: 100px;">{{ques_searched}}?</h1>
+<br>
+<div align="center">
+  <img src="{{image_searched}}" height="400px">
+  <br><br>
+  <textarea name="description" id="description" class="form-control" style="height: 40px; width: 200px"></textarea>
+<br><br>  <a href="/submit"><button type="submit" class="btn btn-primary btn-lg">Submit</button></a>   
+
+</div>
+{% endblock %}
