@@ -1,0 +1,22 @@
+<!-- extend base template -->
+{% extends "base.html" %}
+
+<!-- override base title block -->
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<!-- notes -->
+<br><br><br><br><br><br><br><br>
+<div class="container">
+  <h1 align="center" >Lets Dive Deep into the Knowledge and have a <br>i) Quiz on sea animals using NLP, or <br>ii) a guess game for guessing the animals by seeing images of it using NLP</h1>
+  <br>
+  <div align="center" >
+    <a href="/quiz"><button type="submit" class="btn btn-primary ">Quiz For Sea Animals</button></a>
+    <br><br><br>
+    <a href="/guess"><button type="submit" class="btn btn-primary ">Guess The Animal</button></a>
+  </div>
+</div>
+
+{% endblock %}
+
+
