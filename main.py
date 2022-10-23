@@ -14,6 +14,42 @@ def home():
 def result():
   return render_template("result.html")
 
+@app.route('/guess', methods=['GET', 'POST'])
+def guess():
+  co = cohere.Client('4FqDzcvsQz5KGd4E8plG1boeLod3qsEN1Nsk5n6h')
+  ques_searched = co.generate(
+  model='large',
+  prompt='final',
+  max_tokens=50,
+  temperature=0.75,
+  k=0,
+  p=0.75,
+  frequency_penalty=0,
+  presence_penalty=0,
+  stop_sequences=[" "],
+  return_likelihoods='NONE')
+  image_searched = get(ques_searched)
+  return render_template("guess.html",ques_searched,image_searched)
+
+@app.route('/quiz')
+def quiz():
+  co = cohere.Client('4FqDzcvsQz5KGd4E8plG1boeLod3qsEN1Nsk5n6h')
+  quiz_ques = co.generate(
+  model='large',
+  prompt='final',
+  max_tokens=50,
+  temperature=0.75,
+  k=0,
+  p=0.75,
+  frequency_penalty=0,
+  presence_penalty=0,
+  stop_sequences=[" "],
+  return_likelihoods='NONE')
+  op1 = make(quiz_ques)
+  op2 = make(quiz_ques)
+  op3 = make(quiz_ques)
+  op4 = make(quiz_ques)
+  return render_template("quiz.html",op1,op2,op3,op4,quiz_ques)
 
 
 @app.route('/submit')
